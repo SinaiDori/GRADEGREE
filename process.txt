@@ -1,0 +1,30 @@
+BUGS:
+✅ 1. Dialog moves when adding grade gradeComponent --> Using FlatList
+✅ 2. Moving (margin right) the plus icon in AppBar de-center the title --> https://github.com/callstack/react-native-paper/issues/2232
+✅ 3. AppBar title is cropped --> instead of passing a string, we are passing a Text component
+✅ 4. The plus in addDialog is not centered --> Created Custom Dialog Action Buttons
+✅ 5. Editing grade components changed fieldsBeforeEdit --> https://chat.openai.com/share/3b57324f-d3db-4685-8562-1ca9f4b69d76
+✅ 6. Dialog moves up when keyboard opens... --> position absolute + fine tunings
+✅ 7. after merging sections, the first time you enter the merged section - the scroll bar of the courses list is in the middle of the screen --> adding property: scrollIndicatorInsets={{ right: 1}}
+
+Features:
+✅ 1. AppDrawer + "sections" (yearly, semester...)
+✅ 2. Delete grade component --> Custom IconButton added
+✅ 3. Add sections
+✅ 4. Edit sections
+✅ 5. Create section from other sections (instead of creating from scratch)
+
+ERRORS:
+✅ 1.When adding grade components inside Add/Edit dialog: "ERROR  Warning: Each child in a list should have a unique "key" prop. Check the render method of `VirtualizedList`"
+✅ 2. When adding Section, we get a warning: "Warning: The final argument passed to useEffect changed size between renders. The order and size of this array must remain constant." - JSON.stringify - https://chat.openai.com/share/498a3a78-e69d-4edf-9667-a382c4d9008c
+🫨 3. "TypeError: _reactNative.Keyboard.removeListener is not a function (it is undefined)"
+✅ 4. Unwanted "link" between courses and section that was created with merge - copilot chat
+❌ 5. a course can have more then one grade component with the same name, causing the error: "Encountered two children with the same key"
+
+TODO:
+✅ 1. Add section name to the average text.
+✅ 2. Migrate Modal instead of CustomDialogs.
+
+Info:
+1. React-Native-Modal backdrop flickering solution: https://github.com/react-native-modal/react-native-modal/issues/734
+2. React-Native-Modal backdrop cover status bar: https://stackoverflow.com/questions/45369688/how-to-hide-the-statusbar-when-react-native-modal-shown
