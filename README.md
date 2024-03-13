@@ -13,6 +13,6 @@ Welcome to GRADEGREE, your go-to app for managing and tracking your academic gra
 ## How to Use
 1. **Add Sections**: Start by Creating sections such as semesters or years. 
 2. **Add Courses**: Add your courses along with their respective grades to the relevant section.
-3. **Add Courses Components**: For each Course, add its grade components such as mid or final test, homework and final project. 
+3. **Add Grade Components**: For each Course, add its grade components such as mid or final test, homework and final project. 
 4. **Edit/Delete**: Easily edit or delete sections, courses and grade components as needed to keep your records up to date.
 5. **Stay Organized**: Use GRADEGREE to stay organized and informed about your academic journey.
