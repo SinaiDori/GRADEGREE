@@ -13,6 +13,12 @@
     "production": {}
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "omerbengal8@gmail.com",
+        "ascAppId": "6479556112",
+        "appleTeamId": "KKJ57Q7DR6"
+      }
+    }
   }
 }
