@@ -11,7 +11,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AddCourseModal from './AddCourseModal';
 import EditCourseModal from './EditCourseModal';
 
-export default function MainScreen({ sectionName, courses, setCourses, fields, setFields, avg, addDialogVisability, setAddDialogVisability, editDialogVisability, setEditDialogVisability, fieldsBeforeEdit, setFieldsBeforeEdit }) {
+export default function MainScreen({ sectionName, courses, setCourses, fields, setFields, avg, addDialogVisability, setAddDialogVisability, editDialogVisability, setEditDialogVisability, fieldsBeforeEdit, setFieldsBeforeEdit,
+    // onLayoutRootView
+}) {
     // const [courses, setCourses] = useState([]);
     // const [fields, setFields] = useState({ name: '', credits: '', gradeComponents: [] });
     // const [avg, setAvg] = useState(0);
@@ -22,7 +24,7 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
     const addHandler = () => {
         Keyboard.dismiss();
         if (fields.gradeComponents.length == 0) {
-            Alert.alert("Invalid input", "Must have at least 1 grade component!", [
+            Alert.alert("Invalid action", "Must have at least 1 grade component!", [
                 { text: "Ok" }
             ]);
         } else if (fields.name.length == 0 || fields.credits.length == 0 || fields.gradeComponents.some(item => item.name.length == 0 || item.grade.length == 0 || item.percentage.length == 0)) {
@@ -46,7 +48,7 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
     const editHandler = () => {
         Keyboard.dismiss();
         if (fields.gradeComponents.length == 0) {
-            Alert.alert("Invalid input", "Must have at least 1 grade component!", [
+            Alert.alert("Invalid action", "Must have at least 1 grade component!", [
                 { text: "Ok" }
             ]);
             //setFields({ ...fieldsBeforeEdit });
@@ -101,7 +103,9 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
 
     return (
         <SafeAreaProvider>
-            <View style={styles.container}>
+            <View style={styles.container}
+            // onLayout={onLayoutRootView}
+            >
                 {/* <CustomAddDialog fields={fields} setFields={setFields} addDialogVisability={addDialogVisability} setAddDialogVisability={setAddDialogVisability} addHandler={addHandler} /> */}
                 <AddCourseModal fields={fields} setFields={setFields} addDialogVisability={addDialogVisability} setAddDialogVisability={setAddDialogVisability} addHandler={addHandler} />
                 {/* <CustomEditDialog fields={fields} setFields={setFields} editDialogVisability={editDialogVisability} setEditDialogVisability={setEditDialogVisability} editHandler={editHandler} deleteTile={deleteTile} /> */}
@@ -124,7 +128,7 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
                         data={courses}
                         renderItem={({ item }) => (<Tile item={item} setFields={setFields} setEditDialogVisability={setEditDialogVisability} setFieldsBeforeEdit={setFieldsBeforeEdit} />)}
                         keyExtractor={item => item.name}
-                        scrollIndicatorInsets={{ right: 1}}
+                        scrollIndicatorInsets={{ right: 1 }}
                     />
                 </View>
                 <StatusBar style="auto" />

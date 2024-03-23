@@ -3,11 +3,8 @@ import { DrawerItem, createDrawerNavigator, DrawerContentScrollView, DrawerItemL
 
 import { NavigationContainer } from '@react-navigation/native';
 
-import Something from './Something';
-
-
 // import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Keyboard, Alert } from 'react-native';
 import AppBar from './AppBar';
 
@@ -18,6 +15,8 @@ import { IconButton } from 'react-native-paper';
 import AddSectionModal from './AddSectionModal';
 import EditSectionModal from './EditSectionModal';
 import MergeSectionsModal from './MergeSectionsModal';
+
+// import * as SplashScreen from "expo-splash-screen";
 
 const Drawer = createDrawerNavigator();
 
@@ -82,7 +81,7 @@ export default function App() {
   const deleteSection = () => {
     Keyboard.dismiss();
     if (sections.length == 1) {
-      Alert.alert("Invalid input", "Must have at least 1 section!", [
+      Alert.alert("Invalid action", "Must have at least 1 section!", [
         { text: "Ok" }
       ]);
     } else {
@@ -176,7 +175,7 @@ export default function App() {
         { text: "Ok" }
       ]);
     } else if (isChecked.filter(val => val).length < 2) {
-      Alert.alert("Invalid input", "Must select at least 2 sections!", [
+      Alert.alert("Invalid action", "Must select at least 2 sections!", [
         { text: "Ok" }
       ]);
     } else {
@@ -201,13 +200,43 @@ export default function App() {
   }
 
   useEffect(() => {
-    avgCalc();
-    save();
-  }, [JSON.stringify(sections.map(section => section.courses))]);
+    async function loadSections() {
+      await load();
+    }
+    loadSections();
+  }, []);
+
+  // // state for keeping the splash screen visible
+  // const [appIsReady, setAppIsReady] = useState(false);
+
+  // useEffect(() => {
+  //   async function prepare() {
+  //     // Keep the splash screen visible
+  //     await SplashScreen.preventAutoHideAsync();
+
+  //     setAppIsReady(true);
+  //   }
+  //   prepare();
+  // }, []);
+
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (appIsReady) {
+  //     // Hide the splash screen
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [appIsReady]);
+
+  // if (!appIsReady) {
+  //   return null;
+  // }
 
   useEffect(() => {
-    load();
-  }, []);
+    async function calcAvgAndSaveSections() {
+      avgCalc();
+      await save();
+    }
+    calcAvgAndSaveSections();
+  }, [JSON.stringify(sections.map(section => section.courses))]);
 
   return (
     <NavigationContainer>
@@ -290,6 +319,7 @@ export default function App() {
                 setEditDialogVisability={setEditDialogVisability}
                 fieldsBeforeEdit={fieldsBeforeEdit}
                 setFieldsBeforeEdit={setFieldsBeforeEdit}
+              // onLayoutRootView={onLayoutRootView}
               />)}
             </Drawer.Screen>
           );
