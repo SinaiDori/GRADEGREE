@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 // import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useCallback } from 'react';
-import { Keyboard, Alert } from 'react-native';
+import { Keyboard, Alert, View, Text } from 'react-native';
 import AppBar from './AppBar';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -272,15 +272,20 @@ export default function App() {
 
         drawerContent={props => {
           return (
-            <DrawerContentScrollView {...props}>
-              <DrawerItemList {...props} />
-              <DrawerItem label="Add Section" labelStyle={{ paddingLeft: '30%', color: 'green', fontWeight: 'bold', fontSize: 20 }} onPress={() => {
-                setAddSectionDialogVisability(true);
-              }} />
-              <DrawerItem label="Merge Sections" labelStyle={{ paddingLeft: '22%', color: 'purple', fontWeight: 'bold', fontSize: 20 }} onPress={() => {
-                setMergeSectionsDialogVisability(true);
-              }} />
-            </DrawerContentScrollView>
+            <View style={{ height: "100%" }}>
+              <DrawerContentScrollView {...props}>
+                <DrawerItemList {...props} />
+                <DrawerItem label="Add Section" labelStyle={{ paddingLeft: '30%', color: 'green', fontWeight: 'bold', fontSize: 20 }} onPress={() => {
+                  setAddSectionDialogVisability(true);
+                }} />
+                <DrawerItem label="Merge Sections" labelStyle={{ paddingLeft: '22%', color: 'purple', fontWeight: 'bold', fontSize: 20 }} onPress={() => {
+                  setMergeSectionsDialogVisability(true);
+                }} />
+              </DrawerContentScrollView>
+              <View style={{ justifyContent: 'center', alignItems: 'center', paddingVertical: '2%', backgroundColor: 'lightgrey' }}>
+                <Text style={{ fontSize: 15, color: 'darkslategrey' }}>v1.0.2</Text>
+              </View>
+            </View>
           )
         }}
       >
