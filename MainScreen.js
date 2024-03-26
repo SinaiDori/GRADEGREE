@@ -31,6 +31,18 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
             Alert.alert("Invalid input", "Fields can't be empty!", [
                 { text: "Ok" }
             ]);
+        } else if (isNaN(fields.credits)) {
+            Alert.alert("Invalid input", "Credits must be a number!", [
+                { text: "Ok" }
+            ]);
+        } else if (Number(fields.credits) < 0) {
+            Alert.alert("Invalid input", "Credits can't be negative!", [
+                { text: "Ok" }
+            ]);
+        } else if (Number(fields.credits) > 20) {
+            Alert.alert("Invalid input", "Credits can't be more than 20!", [
+                { text: "Ok" }
+            ]);
         } else if (fields.gradeComponents.some(item => Number(item.grade) < 0)) {
             Alert.alert("Invalid input", "Grade can't be less than 0!", [
                 { text: "Ok" }
@@ -66,6 +78,18 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
                 { text: "Ok" }
             ]);
             //setFields({ ...fieldsBeforeEdit });
+        } else if (isNaN(fields.credits)) {
+            Alert.alert("Invalid input", "Credits must be a number!", [
+                { text: "Ok" }
+            ]);
+        } else if (Number(fields.credits) < 0) {
+            Alert.alert("Invalid input", "Credits can't be negative!", [
+                { text: "Ok" }
+            ]);
+        } else if (Number(fields.credits) > 20) {
+            Alert.alert("Invalid input", "Credits can't be more than 20!", [
+                { text: "Ok" }
+            ]);
         } else if (Number(fields.gradeComponents.reduce((acc, item) => acc + Number(item.percentage), 0)) != 100) {
             Alert.alert("Invalid input", "Percentage must add up to 100%", [
                 { text: "Ok" }
