@@ -102,23 +102,27 @@ export default function App() {
     }
   }
 
+  // function to calc and save the avg of a specific course in a section
+  const avgCalcSpecificCourse = (course) => {
+    let tempGradeComponentSum = 0;
+    for (let gradeComponent of course.gradeComponents) {
+      tempGradeComponentSum += (Number(gradeComponent.grade) * Number(gradeComponent.percentage) / 100);
+    }
+    course.avg = tempGradeComponentSum.toFixed(2);
+    return course.avg;
+  }
+
   const avgCalcSpecificSection = (section) => {
     let courses = section.courses;
     if (courses.length == 0) {
       section.avg = 0;
     } else {
       let creditsSum = 0;
-      let tempGradeComponentSum = 0;
       let gradesSum = 0;
       for (let course of courses) {
         creditsSum += Number(course.credits);
 
-        for (let gradeComponent of course.gradeComponents) {
-          tempGradeComponentSum += (Number(gradeComponent.grade) * Number(gradeComponent.percentage) / 100);
-        }
-
-        gradesSum += tempGradeComponentSum * Number(course.credits);
-        tempGradeComponentSum = 0;
+        gradesSum += avgCalcSpecificCourse(course) * Number(course.credits);
       }
       section.avg = (gradesSum / creditsSum).toFixed(2);
     }

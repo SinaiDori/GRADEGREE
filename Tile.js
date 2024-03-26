@@ -27,6 +27,14 @@ export default function Tile({ item, setFields, setEditDialogVisability, setFiel
                     </View>
                 ))}
 
+                <View style={{ flexDirection: 'row', justifyContent: 'center', marginVertical: 5 }}>
+                    <View style={{ width: '100%', height: 1, backgroundColor: 'black' }} />
+                </View>
+
+                <View style={styles.row}>
+                    <Text style={[styles.item, styles.finalCourseGradeText]}>Final Course Grade: {item.avg}</Text>
+                </View>
+
             </View>
         </Pressable>
     )
@@ -52,5 +60,13 @@ const styles = StyleSheet.create({
         flex: 1,
         fontWeight: "bold",
         fontSize: 18,
+    },
+    finalCourseGradeText: {
+        fontSize: 20,
+        paddingVertical: 5,
+        width: "100%",
+        fontWeight: "bold",
+        textAlign: "center",
+        // writingDirection: "ltr",
     }
 })
