@@ -31,7 +31,12 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
             Alert.alert("Invalid input", "Fields can't be empty!", [
                 { text: "Ok" }
             ]);
-        } else if (Number(fields.gradeComponents.reduce((acc, item) => acc + Number(item.percentage), 0)) != 100) {
+        } else if (fields.gradeComponents.some(item => Number(item.grade) > 200)) {
+            Alert.alert("Invalid input", "Grade can't be more than 200!", [
+                { text: "Ok" }
+            ]);
+        }
+        else if (Number(fields.gradeComponents.reduce((acc, item) => acc + Number(item.percentage), 0)) != 100) {
             Alert.alert("Invalid input", "Percentage must add up to 100%", [
                 { text: "Ok" }
             ]);
@@ -62,6 +67,10 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
                 { text: "Ok" }
             ]);
             //setFields({ ...fieldsBeforeEdit });
+        } else if (fields.gradeComponents.some(item => Number(item.grade) > 200)) {
+            Alert.alert("Invalid input", "Grade can't be more than 200!", [
+                { text: "Ok" }
+            ]);
         } else if (courses.filter(course => course.name === fields.name && fields.name !== fieldsBeforeEdit.name).length != 0) {
             Alert.alert("Invalid input", "Course already exists!", [
                 { text: "Ok" }
