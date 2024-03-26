@@ -282,7 +282,7 @@ export default function App() {
                   setMergeSectionsDialogVisability(true);
                 }} />
               </DrawerContentScrollView>
-              <View style={{ justifyContent: 'center', alignItems: 'center', paddingVertical: '2%', backgroundColor: 'lightgrey' }}>
+              <View style={{ justifyContent: 'center', alignItems: 'center', paddingVertical: '5%', backgroundColor: 'lightgrey' }}>
                 <Text style={{ fontSize: 15, color: 'darkslategrey' }}>v1.0.2</Text>
               </View>
             </View>

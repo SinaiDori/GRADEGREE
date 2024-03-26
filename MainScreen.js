@@ -43,6 +43,10 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
             Alert.alert("Invalid input", "Credits can't be more than 20!", [
                 { text: "Ok" }
             ]);
+        } else if (fields.gradeComponents.some(item => isNaN(item.grade))) {
+            Alert.alert("Invalid input", "Grade must be a number!", [
+                { text: "Ok" }
+            ]);
         } else if (fields.gradeComponents.some(item => Number(item.grade) < 0)) {
             Alert.alert("Invalid input", "Grade can't be less than 0!", [
                 { text: "Ok" }
@@ -95,6 +99,10 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
                 { text: "Ok" }
             ]);
             //setFields({ ...fieldsBeforeEdit });
+        } else if (fields.gradeComponents.some(item => isNaN(item.grade))) {
+            Alert.alert("Invalid input", "Grade must be a number!", [
+                { text: "Ok" }
+            ]);
         } else if (fields.gradeComponents.some(item => Number(item.grade) < 0)) {
             Alert.alert("Invalid input", "Grade can't be less than 0!", [
                 { text: "Ok" }
