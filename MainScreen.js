@@ -31,6 +31,10 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
             Alert.alert("Invalid input", "Fields can't be empty!", [
                 { text: "Ok" }
             ]);
+        } else if (fields.gradeComponents.some(item => Number(item.grade) < 0)) {
+            Alert.alert("Invalid input", "Grade can't be less than 0!", [
+                { text: "Ok" }
+            ]);
         } else if (fields.gradeComponents.some(item => Number(item.grade) > 200)) {
             Alert.alert("Invalid input", "Grade can't be more than 200!", [
                 { text: "Ok" }
@@ -67,6 +71,10 @@ export default function MainScreen({ sectionName, courses, setCourses, fields, s
                 { text: "Ok" }
             ]);
             //setFields({ ...fieldsBeforeEdit });
+        } else if (fields.gradeComponents.some(item => Number(item.grade) < 0)) {
+            Alert.alert("Invalid input", "Grade can't be less than 0!", [
+                { text: "Ok" }
+            ]);
         } else if (fields.gradeComponents.some(item => Number(item.grade) > 200)) {
             Alert.alert("Invalid input", "Grade can't be more than 200!", [
                 { text: "Ok" }
