@@ -283,7 +283,7 @@ export default function App() {
                 }} />
               </DrawerContentScrollView>
               <View style={{ justifyContent: 'center', alignItems: 'center', paddingVertical: '5%', backgroundColor: 'lightgrey' }}>
-                <Text style={{ fontSize: 15, color: 'darkslategrey' }}>v1.0.2</Text>
+                <Text style={{ fontSize: 15, color: 'darkslategrey' }}>v1.0.3</Text>
               </View>
             </View>
           )

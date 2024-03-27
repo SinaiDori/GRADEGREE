@@ -2,7 +2,7 @@
   "expo": {
     "name": "Gradegree",
     "slug": "Gradegree",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.Gradegree",
-      "buildNumber": "2"
+      "buildNumber": "3"
     },
     "android": {
       "adaptiveIcon": {
@@ -29,7 +29,9 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
-      "eas": {}
+      "eas": {
+        "projectId": "f467513c-4c42-4618-af1a-7dd9b3eeb4b6"
+      }
     },
     "runtimeVersion": {
       "policy": "appVersion"
