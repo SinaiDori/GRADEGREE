@@ -20,6 +20,8 @@
       "buildNumber": "3"
     },
     "android": {
+      "package": "com.Gradegree",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -30,7 +32,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "f467513c-4c42-4618-af1a-7dd9b3eeb4b6"
+        "projectId": "981758b9-e491-4c62-9b25-bfa700f2b2f5"
       }
     },
     "runtimeVersion": {
